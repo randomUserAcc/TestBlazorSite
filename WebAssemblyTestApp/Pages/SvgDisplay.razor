@@ -1,0 +1,49 @@
+﻿@using WebAssemblyTestApp.Model
+
+@page "/svgdisplay"
+
+
+<h3>SvgDisplay</h3>
+<div>
+    <button class="btn btn-primary" @onclick="@RotateClockwise">Rotate</button>
+</div>
+<h3>CurrentIndex: @CurrentIndex</h3>
+
+
+<svg style="stroke: #000; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none;" width="900" height="900">
+    @foreach (Building b in buildingList)
+    {
+<BuildingDisplay building="b"></BuildingDisplay>
+}
+
+    Sorry, your browser does not support inline SVG.
+</svg>
+
+@code { int CurrentIndex = 0;
+    string Message;
+
+
+    List<Building> buildingList = new List<Building> {
+        new Building { Name = "Constructor",X=600, Y=0, OffsetX = 80, OffsetY = 100, Rotation=270, Image = @"images/constructor.png"},
+        new Building { Name = "Constructor",X=600, Y=80, OffsetX = 80, OffsetY = 100, Rotation=270, Image = @"images/constructor.png"},
+        new Building { Name = "Constructor",X=600, Y=160, OffsetX = 80, OffsetY = 100, Rotation=270, Image = @"images/constructor.png"},
+        new Building { Name = "Constructor",X=600, Y=240, OffsetX = 80, OffsetY = 100, Rotation=270, Image = @"images/constructor.png"},
+        new Building { Name = "Assembler",X = 5,Y=150, OffsetX = 100, OffsetY = 150, Image = @"images/assembler.png"},
+        new Building { Name = "Assembler",X = 105,Y=150, OffsetX = 100, OffsetY = 150, Image = @"images/assembler.png"},
+        new Building { Name = "Assembler",X = 205,Y=150, OffsetX = 100, OffsetY = 150, Image = @"images/assembler.png"},
+        new Building { Name = "Assembler",X = 305,Y=150, OffsetX = 100, OffsetY = 150, Image = @"images/assembler.png"},
+        new Building { Name = "Assembler",X = 405,Y=150, OffsetX = 100, OffsetY = 150, Image = @"images/assembler.png"},
+    };
+    public void ChangeMessage(MouseEventArgs e)
+    { Message = "asdfasdgf"; }
+
+
+    void RotateClockwise()
+    {
+        var toRotate = buildingList.Where((x) => x.Selected == true);
+        foreach (var rotate in toRotate)
+        {
+            rotate.Rotation += 90;
+        }
+
+    } }
