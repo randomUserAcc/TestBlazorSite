@@ -1,4 +1,36 @@
-/* /Pages/SvgDisplay.razor.rz.scp.css */
+/* /Pages/PlannerDisplay.razor.rz.scp.css */
+.wrapper[b-qjulr9ac55] {
+    width: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+    display: flex;
+}
+
+.svgwindow[b-qjulr9ac55] {
+    min-width: 300px;
+    width: 100%;
+    min-height: 800px;
+    height: 800px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.addwindow[b-qjulr9ac55] {
+    min-width: 10px;
+    max-width: 200px;
+    width: 100%;
+    min-height: 800px;
+    height: 100%;
+}
+
+.border[b-qjulr9ac55] {
+    border: 1px;
+    padding: 1px 1px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 10px;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-y8wmbh5995] {
     position: relative;
@@ -132,4 +164,22 @@
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
+}
+/* /Shared/SvgDisplay.razor.rz.scp.css */
+.svgwindow[b-vsey13bgrs] {
+    min-width: 300px;
+    width: 100%;
+    min-height: 800px;
+    height: 800px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.border[b-vsey13bgrs] {
+    border: 1px;
+    padding: 1px 1px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 10px;
 }
