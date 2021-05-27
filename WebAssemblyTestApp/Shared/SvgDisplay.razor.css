@@ -1,0 +1,17 @@
+﻿.svgwindow {
+    min-width: 300px;
+    width: 100%;
+    min-height: 800px;
+    height: 800px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.border {
+    border: 1px;
+    padding: 1px 1px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 10px;
+}

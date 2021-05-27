@@ -1,0 +1,14 @@
+﻿@using WebAssemblyTestApp.Model
+@inject IBuilngEventHandler BuildingEventHandler
+
+@page "/svgdisplay"
+
+<h3>Message: @BuildingEventHandler.Message</h3>
+
+<div class="wrapper">
+    <div class="addwindow border">
+        sdfadf
+    </div>
+    <WebAssemblyTestApp.Shared.SvgDisplay></WebAssemblyTestApp.Shared.SvgDisplay>
+</div>
+@code { }

@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using WebAssemblyTestApp.Service;
 
 namespace WebAssemblyTestApp
 {
@@ -22,7 +23,7 @@ namespace WebAssemblyTestApp
                 // For more information, see https://aka.ms/blazor-standalone-auth
                 builder.Configuration.Bind("Local", options.ProviderOptions);
             });
-
+            builder.Services.AddSingleton<IBuilngEventHandler, BuilngEventHandler>();
             await builder.Build().RunAsync();
         }
     }

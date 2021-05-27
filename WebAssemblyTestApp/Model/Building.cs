@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WebAssemblyTestApp.Model
+﻿namespace WebAssemblyTestApp.Model
 {
 
     public class Building
@@ -17,15 +15,7 @@ namespace WebAssemblyTestApp.Model
         public int Rotation { get; set; } = 0;
         public bool Selected
         {
-            //get => Selected;
-            //set => OnSelectionChange(value);
             get; set;
-        }
-
-        private void OnSelectionChange(bool value)
-        {
-            Selected = value;
-            OnSelectedChangeEvent?.Invoke();
         }
         public string StrokeColor
         {
@@ -41,7 +31,5 @@ namespace WebAssemblyTestApp.Model
                 }
             }
         }
-
-        public event Action OnSelectedChangeEvent;
     }
 }

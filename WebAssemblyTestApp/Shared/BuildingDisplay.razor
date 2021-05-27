@@ -1,63 +1,16 @@
 ﻿@using WebAssemblyTestApp.Model
+@inject IBuilngEventHandler BuildingEventHandler
 
-<style>
-    .small {
-        font: italic 30px sans-serif;
-    }
-</style>
 <g id="@building.Id" transform="rotate(@building.Rotation, @building.RotationPointX, @building.RotationPointY)"
-   @onmousemove="MouseMove"
-   @onmousedown="MouseDown"
-   @onmouseup="MouseUp"
-   @onmouseout="MouseOut">
+   @onmousemove="e =>BuildingEventHandler.OnMouseMoveHandle(e, building)"
+   @onmousedown="e =>BuildingEventHandler.OnMouseDownHandle(e, building)"
+   @onmouseup="e =>BuildingEventHandler.OnMouseUpHandle(e, building)"
+   @onmouseout="e =>BuildingEventHandler.OnMouseOutHandle(e, building)">
     <rect id="rect1" x="@building.X" y="@building.Y"
           width="@building.OffsetX" height="@building.OffsetY"
           fill="url(#image1)"
           style="stroke-width:2; stroke:@building.StrokeColor" />
     <image id="image1" href=" @building.Image " x="@building.X" y="@building.Y" width="@building.OffsetX" height="@building.OffsetY" preserveAspectRatio="xMidYMid slice" />
 </g>
-<text x="30" y="30" class="small">@Message</text>
 
-@code { [Parameter] public Building building { get; set; }
-
-    string Message;
-    bool isMoving = false;
-    int mouseDragStartPositionX;
-    int mouseDragStartPositionY;
-    int buildingStartPositionX;
-    int buildingStartPositionY;
-
-    void MouseMove(MouseEventArgs e)
-    {
-        if (isMoving)
-        {
-            building.X = buildingStartPositionX + ((int)e.ClientX - mouseDragStartPositionX);
-            building.Y = buildingStartPositionY + ((int)e.ClientY - mouseDragStartPositionY);
-            Message = $"({building.X}, {building.Y}), {mouseDragStartPositionX - (int)e.ClientX}";
-        }
-    }
-    void MouseDown(MouseEventArgs e)
-    {
-
-        if (!building.Selected)
-        {
-            building.Selected = true;
-            isMoving = true;
-            mouseDragStartPositionX = (int)e.ClientX;
-            mouseDragStartPositionY = (int)e.ClientY;
-            buildingStartPositionX = building.X;
-            buildingStartPositionY = building.Y;
-            Message = $"({building.X}, {building.Y}), {mouseDragStartPositionX - (int)e.ClientX}";
-        }
-        else
-        {
-            building.Selected = false;
-        }
-    }
-    void MouseUp(MouseEventArgs e)
-    {
-        isMoving = false;
-    }
-    void MouseOut(MouseEventArgs e)
-    {
-    } }
+@code { [Parameter] public Building building { get; set; } }
